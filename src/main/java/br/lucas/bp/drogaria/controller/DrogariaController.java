@@ -5,11 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 /*Class que vai gerar serviços
  * caminho Path()
- * quando for chamar esse serviço ("/drogaria")*/
-@RestController("/drogaria")
+ * quando for chamar esse serviço ("/drogaria")
+ * DevTolls: Ferramenta de auto-carregamento, precisa add com botão direito no project procurar spring edit starters*/
+@RestController//Controlador
+@RequestMapping("/drogaria")//Caminho do controlador
 public class DrogariaController {
-	@RequestMapping("/Hello")//Transforma um metodo em serviço
+	@RequestMapping("/hello")//Transforma um metodo em serviço
 	public String exibirMensagem() {
-		return "Hello world!";
+		return "Olá mundo!!!";
 	}
 }
