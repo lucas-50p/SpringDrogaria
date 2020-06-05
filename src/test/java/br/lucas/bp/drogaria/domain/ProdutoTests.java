@@ -19,6 +19,6 @@ public class ProdutoTests {
 			LocalDate.of(2011, 11, 23)
 		);
 		
-		System.out.println(p);
+		
 	}
 }
