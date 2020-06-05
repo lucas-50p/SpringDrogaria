@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,7 +45,8 @@ public class Produto {
 	@Column(nullable = true)//Não obrigatorio
 	private LocalDate dataDeValidade;
 	
-	
-	
+	@ManyToOne//Muitos produtos se ligam a uma categoria, quando oneTOone tem que ser unique= true
+	@JoinColumn(nullable = false)//Para chave Estrangeira
+	private Categoria categoria;//Chave estrageira
 	
 }
