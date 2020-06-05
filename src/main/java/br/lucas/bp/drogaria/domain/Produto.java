@@ -31,7 +31,7 @@ public class Produto {
 	
 	@Id//Chave primaria manual,eu vou fornecer os valores
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//(automatica)Qual tipo da geração da chave primaria
-	private Short codigo;
+	private Integer codigo;
 	
 	@Column(length = 50, nullable = false, unique = true)//Tamanho 50 caracteres
 	private String nome;

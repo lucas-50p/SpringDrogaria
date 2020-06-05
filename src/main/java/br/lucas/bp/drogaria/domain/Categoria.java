@@ -16,9 +16,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Categoria {
 	
+	/*Mudei Byte para Short, a geração da chave primaria auto incremento no está implementada para Byte
+	 * só implementada a partir do short motivo JPA*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Byte codigo;
+	private Short codigo;
 	
 	@Column(length = 50, nullable = false, unique = true)
 	private String nome;
