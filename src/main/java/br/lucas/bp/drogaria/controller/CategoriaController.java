@@ -1,9 +1,12 @@
 package br.lucas.bp.drogaria.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,5 +40,26 @@ public class CategoriaController {
 	public Categoria inserir(@RequestBody Categoria categoria) {//Pré salvamento
 		Categoria categoriaSalva = categoriaRepository.save(categoria);//pós salvamento
 		return categoriaSalva;
+	}
+	
+	/*Optional: Se ele no encontrar ele retorna null
+	 * @PathVariable para casar(juntar) os dois codigos(codigo)*/
+	/*1 opção de Delete*/
+	/*@DeleteMapping("/{codigo}")
+	public Optional<Categoria> excluir (@PathVariable Short codigo) {
+		Optional<Categoria> categoria = categoriaRepository.findById(codigo);
+		categoriaRepository.delete(categoria.get());
+		return categoria;
+		
+	}*/
+	/*2 opção
+	 * Return o proprio obj*/
+	@DeleteMapping("/{codigo}")
+	public Categoria excluir (@PathVariable Short codigo) {
+		Optional<Categoria> categoria = categoriaRepository.findById(codigo);
+		categoriaRepository.delete(categoria.get());
+		Categoria categoriaRetorno = categoria.get();
+		return categoriaRetorno;
+		
 	}
 }
