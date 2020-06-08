@@ -32,6 +32,13 @@ public class CategoriaController {
 		List<Categoria>categorias = categoriaRepository.findAll();
 		return categorias;
 	}
+	/*Optional: quando não encontrar ele return null*/
+	@GetMapping("/{codigo}")
+	public Categoria buscar(@PathVariable Short codigo) {
+		Optional<Categoria> resultado = categoriaRepository.findById(codigo);
+		Categoria categoria = resultado.get();
+		return categoria;
+	}
 	
 	/*Esse metodo --- Pós salvo como se eu tivesse fazendo insert faço um select para buscar
 	 *S: do save retorna o obj após o salvamento retorna obj atualizado
